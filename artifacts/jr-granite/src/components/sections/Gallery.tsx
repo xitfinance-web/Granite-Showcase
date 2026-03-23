@@ -23,11 +23,13 @@ export function Gallery() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           <motion.div
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden h-[300px] md:h-auto min-h-[300px] bg-muted border border-border flex items-center justify-center"
+            className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden h-[300px] md:h-auto min-h-[300px] bg-muted border border-border"
           >
-            <span className="text-muted-foreground text-sm uppercase tracking-widest">
-              {t("Photo Coming Soon", "Foto Próximamente")}
-            </span>
+            <img
+              src={`${import.meta.env.BASE_URL}images/kitchen-island.jpeg`}
+              alt="Kitchen island with white quartz countertop"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
 
           {placeholders.slice(1).map((_, idx) => (

@@ -20,15 +20,17 @@ export function Hero() {
 
       <div className="container relative z-10 mx-auto px-4 md:px-6 pt-20">
         <div className="max-w-3xl">
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium leading-[1.1] text-white mb-6"
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-              {t("Quality You Can Count On", "Calidad en la que Puedes Confiar")}
+            {t("Quality You Can", "Calidad en la que")} <br />
+            <span className="text-gradient-gold italic pr-4">
+              {t("Count On.", "Puedes Confiar.")}
             </span>
-          </motion.div>
+          </motion.h1>
 
 
           <motion.p
