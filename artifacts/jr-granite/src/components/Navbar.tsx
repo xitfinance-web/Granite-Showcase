@@ -79,10 +79,10 @@ export function Navbar() {
             </a>
             <button
               onClick={toggle}
-              className="text-sm font-bold border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-md tracking-widest"
+              className="text-sm font-bold border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-md"
               title={t("Switch to Spanish", "Cambiar a Inglés")}
             >
-              {lang === "en" ? "ES" : "EN"}
+              {lang === "en" ? "Español" : "English"}
             </button>
             <Button size="sm" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: "smooth" })}>
               {t("Get a Quote", "Cotización")}
@@ -92,9 +92,9 @@ export function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={toggle}
-              className="text-sm font-bold border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-md tracking-widest"
+              className="text-sm font-bold border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-md"
             >
-              {lang === "en" ? "ES" : "EN"}
+              {lang === "en" ? "Español" : "English"}
             </button>
             <button
               className="text-foreground hover:text-primary transition-colors p-2"
