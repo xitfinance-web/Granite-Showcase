@@ -49,12 +49,9 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-1 group">
             <span className="font-serif text-2xl font-bold text-gradient-gold uppercase tracking-widest group-hover:opacity-80 transition-opacity">
-              JR Granite
-            </span>
-            <span className="text-xs text-muted-foreground uppercase tracking-widest hidden sm:block mt-1">
-              LLC
+              JR Granite LLC
             </span>
           </Link>
 

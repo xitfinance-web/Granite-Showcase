@@ -30,17 +30,6 @@ export function Hero() {
             </span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium leading-[1.1] text-white mb-6"
-          >
-            {t("Beautiful Stone,", "Piedra Hermosa,")} <br />
-            <span className="text-gradient-gold italic pr-4">
-              {t("Done Right.", "Hecho Bien.")}
-            </span>
-          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
