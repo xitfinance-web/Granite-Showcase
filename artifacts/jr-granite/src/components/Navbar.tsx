@@ -3,10 +3,12 @@ import { Link } from "wouter";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import { useLang } from "@/context/LanguageContext";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, toggle, t } = useLang();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,15 +19,13 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Materials", href: "#materials" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Contact", href: "#contact" },
+    { name: t("Home", "Inicio"), href: "#home" },
+    { name: t("Services", "Servicios"), href: "#services" },
+    { name: t("Our Work", "Nuestro Trabajo"), href: "#gallery" },
+    { name: t("Contact", "Contacto"), href: "#contact" },
   ];
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // If it's a hash link and we're on the home page, scroll to it
     if (href.startsWith("#")) {
       e.preventDefault();
       const element = document.querySelector(href);
@@ -33,7 +33,6 @@ export function Navbar() {
         element.scrollIntoView({ behavior: "smooth" });
         setMobileMenuOpen(false);
       } else {
-        // If element not found (e.g., on a different page), navigate to home + hash
         window.location.href = `/${href}`;
       }
     }
@@ -50,7 +49,6 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <span className="font-serif text-2xl font-bold text-gradient-gold uppercase tracking-widest group-hover:opacity-80 transition-opacity">
               JR Granite
@@ -60,7 +58,6 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             <ul className="flex items-center gap-6">
               {navLinks.map((link) => (
@@ -80,23 +77,36 @@ export function Navbar() {
               <Phone className="w-4 h-4" />
               <span>(555) 123-4567</span>
             </a>
+            <button
+              onClick={toggle}
+              className="text-sm font-bold border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-md tracking-widest"
+              title={t("Switch to Spanish", "Cambiar a Inglés")}
+            >
+              {lang === "en" ? "ES" : "EN"}
+            </button>
             <Button size="sm" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: "smooth" })}>
-              Get a Quote
+              {t("Get a Quote", "Cotización")}
             </Button>
           </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-foreground hover:text-primary transition-colors p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={toggle}
+              className="text-sm font-bold border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-colors px-3 py-1.5 rounded-md tracking-widest"
+            >
+              {lang === "en" ? "ES" : "EN"}
+            </button>
+            <button
+              className="text-foreground hover:text-primary transition-colors p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Nav */}
       <div
         className={cn(
           "fixed inset-0 top-[60px] bg-background/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out md:hidden flex flex-col",
@@ -123,7 +133,7 @@ export function Navbar() {
               setMobileMenuOpen(false);
               document.querySelector('#contact')?.scrollIntoView({ behavior: "smooth" });
             }}>
-              Request Free Estimate
+              {t("Get a Free Quote", "Obtener Cotización Gratis")}
             </Button>
           </div>
         </nav>
