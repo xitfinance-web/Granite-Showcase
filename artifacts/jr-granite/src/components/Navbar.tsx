@@ -70,9 +70,9 @@ export function Navbar() {
               ))}
             </ul>
             <div className="h-6 w-px bg-border mx-2 hidden lg:block"></div>
-            <a href="tel:+15551234567" className="hidden lg:flex items-center gap-2 text-primary hover:text-gold-light transition-colors font-medium">
+            <a href="tel:+18653870744" className="hidden lg:flex items-center gap-2 text-primary hover:text-gold-light transition-colors font-medium">
               <Phone className="w-4 h-4" />
-              <span>(555) 123-4567</span>
+              <span>(865) 387-0744</span>
             </a>
             <button
               onClick={toggle}
@@ -122,9 +122,9 @@ export function Navbar() {
             </a>
           ))}
           <div className="mt-auto pb-10 flex flex-col gap-4">
-            <a href="tel:+15551234567" className="flex items-center justify-center gap-3 text-xl text-primary py-4 border border-primary/30 rounded-lg">
+            <a href="tel:+18653870744" className="flex items-center justify-center gap-3 text-xl text-primary py-4 border border-primary/30 rounded-lg">
               <Phone className="w-5 h-5" />
-              <span>(555) 123-4567</span>
+              <span>(865) 387-0744</span>
             </a>
             <Button size="lg" className="w-full text-lg" onClick={() => {
               setMobileMenuOpen(false);

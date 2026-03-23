@@ -78,7 +78,7 @@ export function Contact() {
                   <p className="text-sm text-muted-foreground uppercase tracking-widest mb-1">
                     {t("Call or Text", "Llama o Envía Mensaje")}
                   </p>
-                  <p className="text-xl font-serif text-foreground">(555) 123-4567</p>
+                  <p className="text-xl font-serif text-foreground">(865) 387-0744</p>
                 </div>
               </div>
 
@@ -90,7 +90,7 @@ export function Contact() {
                   <p className="text-sm text-muted-foreground uppercase tracking-widest mb-1">
                     {t("Email Us", "Escríbenos")}
                   </p>
-                  <p className="text-lg text-foreground">info@jrgranite.com</p>
+                  <p className="text-lg text-foreground">jrgranite2021@gmail.com</p>
                 </div>
               </div>
 

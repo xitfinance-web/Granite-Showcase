@@ -57,11 +57,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <a href="tel:+15551234567" className="hover:text-primary transition-colors">(555) 123-4567</a>
+                <a href="tel:+18653870744" className="hover:text-primary transition-colors">(865) 387-0744</a>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:info@jrgranite.com" className="hover:text-primary transition-colors">info@jrgranite.com</a>
+                <a href="mailto:jrgranite2021@gmail.com" className="hover:text-primary transition-colors">jrgranite2021@gmail.com</a>
               </li>
             </ul>
           </div>
