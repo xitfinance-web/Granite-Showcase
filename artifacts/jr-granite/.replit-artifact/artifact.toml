@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "JR Granite LLC"
+version = "1.0.0"
+id = "artifacts/jr-granite"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20431
+
+[services.development]
+run = "pnpm --filter @workspace/jr-granite run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/jr-granite", "run", "build" ]
+publicDir = "artifacts/jr-granite/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20431"
+BASE_PATH = "/"

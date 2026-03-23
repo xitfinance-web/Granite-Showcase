@@ -1,0 +1,17 @@
+packages:
+  "framer-motion": "For premium scroll animations and page transitions"
+  "react-hook-form": "For robust contact form state management"
+  "@hookform/resolvers": "For Zod integration with the contact form"
+  "zod": "For contact form validation schema"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility to safely merge Tailwind CSS classes"
+
+images:
+  - path: "artifacts/jr-granite/public/images/dark-stone-texture.png"
+    description: "A dark, highly detailed, luxurious black marble or granite stone texture with subtle, elegant gold and white veining. Suitable for a high-end website background."
+    aspect_ratio: "16:9"
+
+notes:
+  - Building a premium, dark-themed, single-page scroll layout with smooth animations.
+  - Using Unsplash for realistic kitchen/bathroom photography, and a generated dark stone texture for thematic backgrounds.
+  - Contact form is client-side only and will mock a submission with a toast notification.
