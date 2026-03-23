@@ -102,7 +102,7 @@ export function Contact() {
                   <p className="text-sm text-muted-foreground uppercase tracking-widest mb-1">
                     {t("Our Location", "Nuestra Ubicación")}
                   </p>
-                  <p className="text-lg text-foreground">123 Stonecraft Way, Metro City</p>
+                  <p className="text-lg text-foreground">Knoxville, TN</p>
                 </div>
               </div>
             </div>

@@ -53,7 +53,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-muted-foreground text-sm">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span>123 Stonecraft Way<br />Suite 100<br />Metro City, ST 12345</span>
+                <span>Knoxville, TN</span>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
