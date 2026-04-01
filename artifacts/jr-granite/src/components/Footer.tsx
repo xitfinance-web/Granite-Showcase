@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import { MapPin, Phone, Mail, Instagram, Facebook, Clock } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 
@@ -41,7 +40,6 @@ export function Footer() {
               <li><a href="#home" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t("Home", "Inicio")}</a></li>
               <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t("Services", "Servicios")}</a></li>
               <li><a href="#gallery" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t("Our Work", "Nuestro Trabajo")}</a></li>
-              <li><Link href="/gallery" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t("Full Portfolio", "Portafolio Completo")}</Link></li>
               <li><a href="#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t("Contact", "Contacto")}</a></li>
             </ul>
           </div>
