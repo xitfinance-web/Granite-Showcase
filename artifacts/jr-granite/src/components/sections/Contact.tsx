@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -79,6 +79,7 @@ export function Contact() {
                     {t("Call or Text", "Llama o Envía Mensaje")}
                   </p>
                   <p className="text-xl font-serif text-foreground">(865) 387-0744</p>
+                  <p className="text-xl font-serif text-foreground">(865) 455-9911</p>
                 </div>
               </div>
 
@@ -93,29 +94,8 @@ export function Contact() {
                   <p className="text-lg text-foreground">jrgranite2021@gmail.com</p>
                 </div>
               </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-primary border border-border">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground uppercase tracking-widest mb-1">
-                    {t("Our Location", "Nuestra Ubicación")}
-                  </p>
-                  <p className="text-lg text-foreground">Knoxville, TN</p>
-                </div>
-              </div>
             </div>
 
-            {/* Map placeholder — no stock photos */}
-            <div className="w-full h-64 bg-secondary rounded-2xl border border-border/50 flex items-center justify-center">
-              <div className="text-center space-y-2">
-                <MapPin className="w-8 h-8 text-primary mx-auto" />
-                <p className="text-sm text-muted-foreground">
-                  {t("Map coming soon", "Mapa próximamente")}
-                </p>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div

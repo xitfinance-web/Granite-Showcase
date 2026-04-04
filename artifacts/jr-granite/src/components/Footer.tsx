@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Instagram, Facebook, Clock } from "lucide-react";
+import { Phone, Mail, Instagram, Facebook, Clock } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 
 export function Footer() {
@@ -49,13 +49,12 @@ export function Footer() {
               {t("Contact Us", "Contáctanos")}
             </h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-muted-foreground text-sm">
-                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span>Knoxville, TN</span>
-              </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <a href="tel:+18653870744" className="hover:text-primary transition-colors">(865) 387-0744</a>
+                <div className="flex flex-col">
+                  <a href="tel:+18653870744" className="hover:text-primary transition-colors">(865) 387-0744</a>
+                  <a href="tel:+18654559911" className="hover:text-primary transition-colors">(865) 455-9911</a>
+                </div>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground text-sm">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
