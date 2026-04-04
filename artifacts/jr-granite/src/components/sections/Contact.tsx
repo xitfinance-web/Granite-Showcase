@@ -29,18 +29,44 @@ export function Contact() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (_data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    toast({
-      title: t("Message Sent!", "¡Mensaje Enviado!"),
-      description: t(
-        "We'll get back to you soon to talk about your project.",
-        "Nos pondremos en contacto contigo pronto para hablar de tu proyecto."
-      ),
-    });
-    reset();
+    try {
+      const res = await fetch("https://formspree.io/f/mdappajd", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          projectType: data.projectType,
+          message: data.message,
+        }),
+      });
+      if (res.ok) {
+        toast({
+          title: t("Message Sent!", "¡Mensaje Enviado!"),
+          description: t(
+            "We'll get back to you soon to talk about your project.",
+            "Nos pondremos en contacto contigo pronto para hablar de tu proyecto."
+          ),
+        });
+        reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch {
+      toast({
+        title: t("Something went wrong", "Algo salió mal"),
+        description: t(
+          "Please try calling or emailing us directly.",
+          "Por favor llámanos o escríbenos directamente."
+        ),
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
