@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "./ui/button";
@@ -17,6 +18,15 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { name: t("Home", "Inicio"), href: "#home" },
@@ -104,37 +114,43 @@ export function Navbar() {
         </div>
       </div>
 
-      <div
-        className={cn(
-          "fixed inset-0 top-[60px] bg-background/95 backdrop-blur-xl z-40 transition-transform duration-300 ease-in-out md:hidden flex flex-col",
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        )}
-      >
-        <nav className="flex flex-col p-6 gap-6 pt-10 h-full">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleScrollTo(e, link.href)}
-              className="text-2xl font-serif text-foreground hover:text-primary transition-colors border-b border-border/50 pb-4"
-            >
-              {link.name}
-            </a>
-          ))}
-          <div className="mt-auto pb-10 flex flex-col gap-4">
-            <a href="tel:+18653870744" className="flex items-center justify-center gap-3 text-xl text-primary py-4 border border-primary/30 rounded-lg">
-              <Phone className="w-5 h-5" />
-              <span>(865) 387-0744</span>
-            </a>
-            <Button size="lg" className="w-full text-lg" onClick={() => {
-              setMobileMenuOpen(false);
-              document.querySelector('#contact')?.scrollIntoView({ behavior: "smooth" });
-            }}>
-              {t("Get a Free Quote", "Obtener Cotización Gratis")}
-            </Button>
-          </div>
-        </nav>
-      </div>
+      {createPortal(
+        <div
+          className={cn(
+            "fixed inset-0 z-40 bg-background/95 backdrop-blur-xl transition-transform duration-300 ease-in-out md:hidden flex flex-col overscroll-contain",
+            mobileMenuOpen
+              ? "translate-x-0 pointer-events-auto"
+              : "translate-x-full pointer-events-none"
+          )}
+          aria-hidden={!mobileMenuOpen}
+        >
+          <nav className="flex flex-col p-6 gap-6 pt-24 h-full overflow-y-auto">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleScrollTo(e, link.href)}
+                className="text-2xl font-serif text-foreground hover:text-primary transition-colors border-b border-border/50 pb-4"
+              >
+                {link.name}
+              </a>
+            ))}
+            <div className="mt-auto pb-10 flex flex-col gap-4">
+              <a href="tel:+18653870744" className="flex items-center justify-center gap-3 text-xl text-primary py-4 border border-primary/30 rounded-lg">
+                <Phone className="w-5 h-5" />
+                <span>(865) 387-0744</span>
+              </a>
+              <Button size="lg" className="w-full text-lg" onClick={() => {
+                setMobileMenuOpen(false);
+                document.querySelector('#contact')?.scrollIntoView({ behavior: "smooth" });
+              }}>
+                {t("Get a Free Quote", "Obtener Cotización Gratis")}
+              </Button>
+            </div>
+          </nav>
+        </div>,
+        document.body
+      )}
     </header>
   );
 }
